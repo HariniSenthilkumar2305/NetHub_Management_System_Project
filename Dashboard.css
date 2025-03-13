@@ -1,0 +1,136 @@
+/* Full-screen Background Image */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background: url("E:\NetHub Management System_Project\myapp\src\Pages\Dashboardimage.jpg") no-repeat center center/cover;
+}
+
+/* Left Sidebar (Extended & Transparent Glass Effect) */
+.sidebar {
+  width: 480px; /* Extended size */
+  background: rgba(0, 0, 0, 0.3); /* More transparency */
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 18px;
+  position: fixed;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  backdrop-filter: blur(12px); /* Glass Blur */
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15); /* Slightly visible */
+  border-radius: 12px;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Logout Button (Matching Sidebar Buttons) */
+.logout-btn {
+  margin-top: auto;
+  padding: 16px; /* Matching padding */
+  background: rgba(255, 255, 255, 0.15); /* Same as sidebar items */
+  color: white;
+  border: none;
+  border-radius: 12px; /* Same border radius */
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  font-size: 1.1rem; /* Match font size */
+}
+
+/* Hover Effect (Same as Sidebar Buttons) */
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.3); /* Same hover effect */
+}
+
+
+/* Dashboard Main Content */
+.dashboard-content {
+  flex: 1;
+  margin-left: 650px; /* Ensure it's the same as sidebar width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  text-align:center;
+  color: white;
+  width: calc(100% - 380px); /* Adjust width dynamically */
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 20px;
+  height: 100vh; /* Ensure full height for vertical centering */
+}
+
+/* "Welcome" Text Animation - Continuous Movement */
+.animated-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInMove 2s forwards, textFloat 4s ease-in-out infinite alternate;
+}
+
+/* Initial Fade-in Animation */
+@keyframes fadeInMove {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Continuous Floating Animation */
+@keyframes textFloat {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(15px);
+  }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 0;
+  }
+
+  .dashboard-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+}

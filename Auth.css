@@ -1,0 +1,92 @@
+/* 📌 Background Image ONLY for Login & Register Pages */
+.login-page, .register-page {
+  font-family: "Poppins", sans-serif;
+  background: url("E:\NetHub Management System_Project\myapp\src\Pages\loginimage.jpg") center/cover no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Moves form to left */
+  height: 100vh;
+  margin: 0;
+  padding-left: 8%; /* Adjust left position */
+}
+
+/* 🟢 Glassmorphism Frame (Login & Register) */
+.auth-container {
+  width: 400px;
+  min-height: 550px;
+  padding: 40px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15); /* Glass effect */
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* 🔷 Title */
+.auth-container h2 {
+  color: #ffffff;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* 🔷 Input Fields */
+.auth-container input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.4); /* Slight transparency */
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Change Input Placeholder Color */
+.auth-container input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 🟢 Login & Register Button */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  margin-top: 15px;
+}
+
+/* 🟢 Button Hover Effect */
+.auth-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* 🔷 Links */
+.auth-container p {
+  margin-top: 15px;
+}
+
+.auth-container a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,47 @@
+/* Prefix with laptop to avoid conflicts */
+.laptop-payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.laptop-payment-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    color: white;
+}
+
+.payment-box h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.payment-details p {
+    color: white;
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.pay-now-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.pay-now-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
