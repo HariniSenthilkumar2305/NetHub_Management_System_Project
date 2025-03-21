@@ -1,0 +1,217 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+/* Laptop Service Page - Full Page Background with Blur */
+.laptop-service-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Blurred Background Image */
+.laptop-service-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("E:/NetHub Management System_Project/myapp/src/Pages/LaptopServiceimg.jpg") no-repeat center center;
+    background-size: cover;
+    filter: blur(3px);  /* ✅ Blur Effect Applied */
+    z-index: -1;
+}
+
+/* Wrapper for Content */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    color: white;
+    position: relative;
+}
+
+/* Left Side - Text Content */
+.left-section {
+    width: 50%;
+    padding: 20px;
+    color: white;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.left-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, white, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideIn 1s ease-in-out;
+}
+
+.left-section p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.left-section ul {
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.left-section ul li {
+    margin: 5px 0;
+    font-weight: 600;
+    transition: transform 0.3s ease-in-out;
+}
+
+.left-section ul li:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Right Side - Form with Frosted Glass Effect */
+.right-section {
+    width: 40%;
+    background: rgba(255, 255, 255, 0.15); /* Glass effect */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(13px); /* Frosted glass effect */
+}
+
+.right-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Form Styling */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* ✅ Glassy Submit Button - Gray to Black Gradient */
+button {
+    background: rgba(0, 0, 0, 0.3); /* Transparent Black */
+    color: white;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(8px); /* Frosted Effect */
+}
+
+/* Hover Effect - Darker Glassy Shade */
+button:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Service Details Box */
+.service-details {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.service-details h3 {
+    color: white;
+}
+
+.service-details p {
+    font-size: 1rem;
+    color: white;
+}
+
+/* Status Buttons */
+.status-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.status-buttons button {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+
+.status-buttons button:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left-section, .right-section {
+        width: 90%;
+    }
+
+    .right-section {
+        margin-top: 20px;
+    }
+}
