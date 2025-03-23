@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import "./Dashboard.css"; // Updated styles
+import "./Dashboard.css";
 
 const Dashboard = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, isAdmin } = useContext(AuthContext); // Check if user is an Admin
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -20,9 +20,11 @@ const Dashboard = () => {
         <ul>
           <li onClick={() => navigate("/system-allotment")}>📌 System Allotment</li>
           <li onClick={() => navigate("/laptop-service")}>🛠 Laptop Service</li>
-          <li onClick={() => navigate("/cctv-service")}>📹 CCTV Service</li> 
-          <li onClick={() => navigate("/ticket-booking")}>🎟 Ticket Booking</li> {/* ✅ Linked to Ticket Booking Page */}
-          <li onClick={() => navigate("/transaction-history")}>💰 Transaction History</li>
+          <li onClick={() => navigate("/cctv-service")}>📹 CCTV Service</li>
+          <li onClick={() => navigate("/ticket-booking")}>🎟 Ticket Booking</li>
+          <li onClick={() => navigate("/transactions")}>💰 Transaction History</li>
+          {/* Show Admin Panel only if the user is an admin */}
+          {isAdmin && <li onClick={() => navigate("/admin-dashboard")}>⚙️ Admin Panel</li>}
         </ul>
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </aside>
