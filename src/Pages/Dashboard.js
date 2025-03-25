@@ -12,6 +12,10 @@ const Dashboard = () => {
     navigate("/login");
   };
 
+  const handleAdminVerification = () => {
+    navigate("/admin-verification"); // Redirect to AdminVerificationPage.js
+  };
+
   return (
     <div className="dashboard-container">
       {/* Left Sidebar */}
@@ -26,6 +30,11 @@ const Dashboard = () => {
           {/* Show Admin Panel only if the user is an admin */}
           {isAdmin && <li onClick={() => navigate("/admin-dashboard")}>⚙️ Admin Panel</li>}
         </ul>
+
+        {/* New "Admin Verification" Button */}
+        <button className="admin-btn" onClick={handleAdminVerification}>Admin Verification</button>
+
+        {/* Logout Button */}
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </aside>
 

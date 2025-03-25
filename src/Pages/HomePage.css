@@ -26,7 +26,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: multiply; /* Darkens the image */
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 120px 20px;
   text-align: center;
   position: relative;

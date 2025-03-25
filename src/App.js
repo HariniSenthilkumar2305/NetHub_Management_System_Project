@@ -8,6 +8,7 @@ import Contact from "./Pages/Contact";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
 import Dashboard from "./Pages/Dashboard";
+import AdminVerificationPage from "./Pages/AdminVerificationPage";
 import AdminDashboard from "./Pages/AdminDashboard";
 import SystemAllotment from "./Pages/SystemAllotment";
 import PaymentPageSystemAllotment from "./Pages/PaymentPageSystemAllotment";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin-verification" element={<AdminVerificationPage />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/system-allotment" element={<SystemAllotment />} />
           <Route path="/payment-system-allotment" element={<PaymentPageSystemAllotment />} />
