@@ -20,7 +20,22 @@ const CCTVService = () => {
     const totalCost = basePrice + numCameras * 100;
     setEstimatedCost(totalCost);
     setStatus("Pending");
+
+    // Store request in localStorage
+    const newRequest = {
+      serviceType,
+      numCameras,
+      address,
+      date,
+      status: "Pending",
+      estimatedCost: totalCost,
+    };
+
+    const existingRequests = JSON.parse(localStorage.getItem("cctvServiceRequests")) || [];
+    existingRequests.push(newRequest);
+    localStorage.setItem("cctvServiceRequests", JSON.stringify(existingRequests));
   };
+
 
   // Redirect to Payment Page with details
   const handleProceedToPayment = () => {

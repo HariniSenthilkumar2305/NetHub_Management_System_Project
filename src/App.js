@@ -10,6 +10,10 @@ import RegisterPage from "./Pages/RegisterPage";
 import Dashboard from "./Pages/Dashboard";
 import AdminVerificationPage from "./Pages/AdminVerificationPage";
 import AdminDashboard from "./Pages/AdminDashboard";
+import AdminSystemAllotmentManagement from "./Pages/AdminSystemAllotmentManagement"; 
+import AdminLaptopServiceManagement from "./Pages/AdminLaptopServiceManagement";
+import AdminCCTVServiceManagement from "./Pages/AdminCCTVServiceManagement";
+import AdminTicketBookingManagement from "./Pages/AdminTicketBookingManagement";
 import SystemAllotment from "./Pages/SystemAllotment";
 import PaymentPageSystemAllotment from "./Pages/PaymentPageSystemAllotment";
 import ConfirmationPage from "./Pages/ConfirmationPage";
@@ -38,6 +42,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/admin-verification" element={<AdminVerificationPage />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/manage-system-allotment" element={<AdminSystemAllotmentManagement />} />
+          <Route path="/manage-laptop-services" element={<AdminLaptopServiceManagement />} />
+          <Route path="/manage-cctv-services" element={<AdminCCTVServiceManagement />} />
+          <Route path="/manage-ticket-booking" element={<AdminTicketBookingManagement />} />
           <Route path="/system-allotment" element={<SystemAllotment />} />
           <Route path="/payment-system-allotment" element={<PaymentPageSystemAllotment />} />
           <Route path="/confirmation" element={<ConfirmationPage />} />

@@ -19,10 +19,9 @@ const TransactionHistory = () => {
           <thead>
             <tr>
               <th>Date</th>
-              <th>User ID</th> {/* Added User ID for tracking unique users */}
+              <th>User Name</th> {/* Show Username */}
               <th>Service Type</th>
               <th>Details</th>
-              <th>Status</th>
               <th>Amount (₹)</th>
             </tr>
           </thead>
@@ -30,10 +29,9 @@ const TransactionHistory = () => {
             {transactions.map((transaction, index) => (
               <tr key={index}>
                 <td>{transaction.date}</td>
-                <td>{transaction.userID}</td> {/* Displaying User ID */}
+                <td>{transaction.userName || "Unknown"}</td> {/* Show Correct Username */}
                 <td>{transaction.serviceType}</td>
                 <td>{transaction.details}</td>
-                <td>{transaction.status}</td> {/* Added Status for Pending Calculation */}
                 <td>{transaction.amount}</td>
               </tr>
             ))}

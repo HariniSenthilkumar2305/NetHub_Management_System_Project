@@ -10,12 +10,12 @@ const LoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    login(username);
+    login(username); // Store username in context & localStorage
     navigate("/dashboard");
   };
 
   return (
-    <div className="login-page"> {/* This class applies the background only to the login page */}
+    <div className="login-page">
       <div className="auth-container">
         <h2>Login to NetHub</h2>
         <form onSubmit={handleLogin}>

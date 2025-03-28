@@ -24,7 +24,7 @@ const TicketBooking = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [bookingConfirmed, setBookingConfirmed] = useState(location.state?.bookingConfirmed || false);
+  const bookingConfirmed = location.state?.bookingConfirmed || false; // Removed unused setBookingConfirmed
   const [selectedTransport, setSelectedTransport] = useState(location.state?.transport || null);
   const [formData, setFormData] = useState(location.state?.formData || {
     transportType: "",
@@ -52,6 +52,25 @@ const TicketBooking = () => {
 
   const handleBooking = (transport) => {
     setSelectedTransport(transport);
+
+    // Save booking details to local storage for Admin Management Page
+    const bookingDetails = {
+      id: Date.now(),
+      transportType: formData.transportType,
+      from: formData.fromLocation,
+      to: formData.toLocation,
+      date: formData.travelDate,
+      passengers: formData.passengers,
+      class: formData.preferredClass,
+      serviceName: transport.serviceName,
+      time: transport.time,
+      price: transport.price,
+      status: "Pending",
+    };
+
+    const storedBookings = JSON.parse(localStorage.getItem("ticketBookings")) || [];
+    localStorage.setItem("ticketBookings", JSON.stringify([...storedBookings, bookingDetails]));
+
     navigate("/payment-ticket", { state: { formData, transport } });
   };
 

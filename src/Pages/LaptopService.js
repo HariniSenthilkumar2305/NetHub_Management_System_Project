@@ -19,13 +19,30 @@ const LaptopService = () => {
         return completionDate.toDateString();
     };
 
-    // Submit Service Request
     const handleSubmit = (e) => {
         e.preventDefault();
         const cost = (Math.random() * (5000 - 500) + 500).toFixed(2); // Random cost between ₹500 - ₹5000
+        const completionDate = generateCompletionDate();
+    
+        const newRequest = {
+            brand,
+            model,
+            issueType,
+            description,
+            status: "Pending",
+            serviceCost: cost,
+            expectedCompletion: completionDate,
+        };
+    
+        // Save request in localStorage
+        const existingRequests = JSON.parse(localStorage.getItem("laptopServiceRequests")) || [];
+        existingRequests.push(newRequest);
+        localStorage.setItem("laptopServiceRequests", JSON.stringify(existingRequests));
+    
         setServiceCost(cost);
-        setExpectedCompletion(generateCompletionDate());
+        setExpectedCompletion(completionDate);
     };
+    
 
     // Redirect to Payment Page
     const handleProceedToPayment = () => {

@@ -1,0 +1,98 @@
+.admin-laptop-service-container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .no-requests {
+    font-size: 18px;
+    color: #777;
+  }
+  
+  .service-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .service-table th, .service-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .service-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .status {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .status.pending {
+    background-color: #ffcc00;
+    color: black;
+  }
+  
+  .status.in-progress {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .status.completed {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .cost-input {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .in-progress {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .completed {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .back-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .back-btn:hover {
+    background-color: #555;
+  }
+  

@@ -1,0 +1,49 @@
+.admin-cctv-container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .cctv-table {
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .status {
+    font-weight: bold;
+  }
+  
+  .status.pending {
+    color: orange;
+  }
+  
+  .status.in-progress {
+    color: blue;
+  }
+  
+  .status.completed {
+    color: green;
+  }
+  
+  select {
+    padding: 5px;
+  }
+  

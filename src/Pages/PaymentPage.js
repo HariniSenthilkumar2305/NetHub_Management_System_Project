@@ -5,13 +5,45 @@ import "./PaymentPage.css";
 const PaymentPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   // Retrieve service details from state
-  const { service, cost,serviceName, serviceType, numCameras, address, date,brand, model, issueType, description, systemType, duration, startTime, totalAmount, details } = location.state || {service: "Unknown", cost: 0 };
+  const {
+    serviceName,
+    serviceType,
+    details,
+    totalAmount,
+    numCameras,
+    address,
+    date,
+    brand,
+    model,
+    issueType,
+    description,
+    systemType,
+    duration,
+    startTime
+  } = location.state || { serviceName: "Unknown", totalAmount: 0 };
+  // Handle Payment Process
   const handlePayment = () => {
+    const loggedInUser = localStorage.getItem("user") || "Unknown"; // Get logged-in user
+
+    const newTransaction = {
+      date: new Date().toLocaleDateString(),
+      userName: loggedInUser, // Store the username
+      serviceType: serviceType || "Unknown Service", // Get service type dynamically
+      details: details || "No details provided", // Get details dynamically
+      amount: totalAmount || 0, // Store total amount
+    };
+
+    // Retrieve existing transactions or set an empty array if none exist
+    const existingTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    
+    // Store updated transactions list in localStorage
+    localStorage.setItem("transactions", JSON.stringify([...existingTransactions, newTransaction]));
+
     alert(`Payment Successful for ${serviceName} (₹${totalAmount})`);
-      navigate("/Dashboard"); 
-  
+
+    navigate("/Dashboard"); // Redirect to Dashboard
   };
 
   return (

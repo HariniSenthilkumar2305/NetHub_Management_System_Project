@@ -20,17 +20,38 @@ const SystemAllotment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/payment-system-allotment", {
-      state: {
-        serviceName: "System Allotment",
+
+    const booking = {
+        id: Date.now(), // Unique ID for each booking
         systemType,
         duration,
         startTime,
         totalAmount,
-        details: `${systemType} for ${duration} hour(s), Start Time: ${startTime}`,
-      },
+        status: "Pending", // Default status
+    };
+
+    // Get existing bookings from localStorage
+    const existingBookings = JSON.parse(localStorage.getItem("systemAllotments")) || [];
+
+    // Add the new booking
+    existingBookings.push(booking);
+
+    // Save back to localStorage
+    localStorage.setItem("systemAllotments", JSON.stringify(existingBookings));
+
+    // Navigate to Payment Page
+    navigate("/payment-system-allotment", {
+        state: {
+            serviceName: "System Allotment",
+            systemType,
+            duration,
+            startTime,
+            totalAmount,
+            details: `${systemType} for ${duration} hour(s), Start Time: ${startTime}`,
+        },
     });
-  };
+};
+
 
   return (
     <div className="allotment-container">

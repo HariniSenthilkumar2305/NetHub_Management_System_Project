@@ -5,20 +5,32 @@ import "./PaymentPageCCTVService.css";
 const PaymentPageCCTVService = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  
+  // Extract service details from location state
   const { serviceName, serviceType, numCameras, address, date, totalAmount } = location.state || {};
 
+  // Handle Payment Confirmation
   const handleConfirmPayment = () => {
-    const transaction = {
-      serviceType: "CCTV Service",
-      details: `${serviceType} - ${numCameras} Cameras`,
-      amount: totalAmount,
-      date: new Date().toLocaleString(),
+    const loggedInUser = localStorage.getItem("user") || "Unknown"; // Get logged-in username
+
+    // Create new transaction entry
+    const newTransaction = {
+      date: new Date().toLocaleDateString(), // Store date
+      userName: loggedInUser, // Store username
+      serviceType: serviceType || "CCTV Service", // Store service type
+      details: `${serviceType} - ${numCameras} Cameras`, // Store details
+      amount: totalAmount || 0, // Store amount
     };
 
-    const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
-    transactions.push(transaction);
-    localStorage.setItem("transactions", JSON.stringify(transactions));
+    // Fetch existing transactions from localStorage
+    const existingTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
+    
+    // Update localStorage with the new transaction
+    localStorage.setItem("transactions", JSON.stringify([...existingTransactions, newTransaction]));
 
+    alert(`Payment Successful for ${serviceName} (₹${totalAmount})`);
+
+    // Navigate to confirmation page
     navigate("/cctv-confirmation", { state: { serviceName, serviceType, numCameras, address, date, totalAmount } });
   };
 

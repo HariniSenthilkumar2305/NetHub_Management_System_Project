@@ -11,17 +11,28 @@ const AdminDashboard = () => {
   useEffect(() => {
     const storedTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
-    // Calculate Total Earnings
-    const earnings = storedTransactions.reduce((acc, transaction) => acc + transaction.amount, 0);
-    setTotalEarnings(earnings);
+    // Get today's date in the same format used in transactions
+    const today = new Date().toLocaleDateString();
 
-    // Count Pending Services
-    const pending = storedTransactions.filter(transaction => transaction.status === "Pending").length;
-    setPendingServices(pending);
+    // Filter transactions that match today's date
+    const todaysTransactions = storedTransactions.filter(transaction => transaction.date === today);
 
-    // Count Unique Active Users (Assuming transactions have a userID field)
-    const uniqueUsers = new Set(storedTransactions.map(transaction => transaction.userID)).size;
+    // ✅ Ensure earnings are summed correctly (No merging issues)
+    let totalAmount = 0;
+    todaysTransactions.forEach(transaction => {
+      if (transaction.amount && !isNaN(transaction.amount)) {
+        totalAmount += transaction.amount;  // Add amount correctly
+      }
+    });
+    setTotalEarnings(totalAmount);
+
+    // ✅ Count today's pending services (total transactions for today)
+    setPendingServices(todaysTransactions.length);
+
+    // ✅ Count unique active users for today
+    const uniqueUsers = new Set(todaysTransactions.map(transaction => transaction.userName)).size;
     setActiveUsers(uniqueUsers);
+
   }, []);
 
   return (
@@ -30,15 +41,15 @@ const AdminDashboard = () => {
 
       {/* Admin Statistics Section */}
       <div className="admin-stats">
-        <div className="stat-card">💰 Total Earnings: ₹{totalEarnings}</div>
-        <div className="stat-card">⏳ Pending Services: {pendingServices}</div>
-        <div className="stat-card">👥 Active Users: {activeUsers}</div>
+        <div className="stat-card">💰 Total Earnings Today: ₹{totalEarnings}</div>
+        <div className="stat-card">⏳ Services Booked Today: {pendingServices}</div>
+        <div className="stat-card">👥 Active Users Today: {activeUsers}</div>
       </div>
 
       {/* Admin Actions Section */}
       <div className="admin-actions">
-        <button onClick={() => navigate("/manage-system-allotment")}>📌 Manage System Allotments</button>
-        <button onClick={() => navigate("/manage-laptop-services")}>🛠 Manage Laptop Services</button>
+      <button onClick={() => navigate("/manage-system-allotment")}>📌 Manage System Allotments</button>
+      <button onClick={() => navigate("/manage-laptop-services")}>🛠 Manage Laptop Services</button>
         <button onClick={() => navigate("/manage-cctv-services")}>📹 Manage CCTV Services</button>
         <button onClick={() => navigate("/manage-ticket-booking")}>🎟 Manage Ticket Bookings</button>
         <button onClick={() => navigate("/transaction-history")}>📜 View Transaction History</button>
@@ -46,5 +57,4 @@ const AdminDashboard = () => {
     </div>
   );
 };
-
 export default AdminDashboard;

@@ -26,7 +26,7 @@ const Dashboard = () => {
           <li onClick={() => navigate("/laptop-service")}>🛠 Laptop Service</li>
           <li onClick={() => navigate("/cctv-service")}>📹 CCTV Service</li>
           <li onClick={() => navigate("/ticket-booking")}>🎟 Ticket Booking</li>
-          <li onClick={() => navigate("/transactions")}>💰 Transaction History</li>
+          <li onClick={() => navigate("/transaction-history")}>💰 Transaction History</li>
           {/* Show Admin Panel only if the user is an admin */}
           {isAdmin && <li onClick={() => navigate("/admin-dashboard")}>⚙️ Admin Panel</li>}
         </ul>
