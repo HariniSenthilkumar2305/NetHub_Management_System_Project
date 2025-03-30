@@ -7,7 +7,6 @@ const AdminDashboard = () => {
   const [totalEarnings, setTotalEarnings] = useState(0);
   const [pendingServices, setPendingServices] = useState(0);
   const [activeUsers, setActiveUsers] = useState(0);
-
   useEffect(() => {
     const storedTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
 
@@ -17,14 +16,13 @@ const AdminDashboard = () => {
     // Filter transactions that match today's date
     const todaysTransactions = storedTransactions.filter(transaction => transaction.date === today);
 
-    // ✅ Ensure earnings are summed correctly (No merging issues)
-    let totalAmount = 0;
-    todaysTransactions.forEach(transaction => {
-      if (transaction.amount && !isNaN(transaction.amount)) {
-        totalAmount += transaction.amount;  // Add amount correctly
-      }
-    });
-    setTotalEarnings(totalAmount);
+  // ✅ Ensuring amounts are correctly parsed before summing
+  let totalAmount = todaysTransactions.reduce((sum, transaction) => {
+    const amount = parseFloat(transaction.amount); // Ensure it's a number
+    return !isNaN(amount) ? sum + amount : sum; // Add only if valid number
+  }, 0);
+
+  setTotalEarnings(totalAmount.toFixed(2)); // Display up to 2 decimal places
 
     // ✅ Count today's pending services (total transactions for today)
     setPendingServices(todaysTransactions.length);
@@ -37,7 +35,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard-container">
-      <h1>⚙️ Admin Dashboard</h1>
+      <h1 className="admin-title">⚙️ Admin Dashboard</h1>
 
       {/* Admin Statistics Section */}
       <div className="admin-stats">
@@ -52,7 +50,7 @@ const AdminDashboard = () => {
       <button onClick={() => navigate("/manage-laptop-services")}>🛠 Manage Laptop Services</button>
         <button onClick={() => navigate("/manage-cctv-services")}>📹 Manage CCTV Services</button>
         <button onClick={() => navigate("/manage-ticket-booking")}>🎟 Manage Ticket Bookings</button>
-        <button onClick={() => navigate("/transaction-history")}>📜 View Transaction History</button>
+        <button onClick={() => navigate("/admin/manage-transactions")}>📜 View Transaction History</button>
       </div>
     </div>
   );

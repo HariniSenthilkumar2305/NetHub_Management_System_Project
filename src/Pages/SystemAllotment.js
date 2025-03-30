@@ -6,6 +6,7 @@ const SystemAllotment = () => {
   const [systemType, setSystemType] = useState("PC");
   const [duration, setDuration] = useState(1);
   const [startTime, setStartTime] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // For displaying errors
   const navigate = useNavigate();
 
   const pricePerHour = 50;
@@ -18,44 +19,64 @@ const SystemAllotment = () => {
     };
   }, []);
 
+  const checkAvailability = (newBooking) => {
+    const existingBookings = JSON.parse(localStorage.getItem("systemAllotments")) || [];
+
+    return existingBookings.some((booking) => {
+      return (
+        booking.systemType === newBooking.systemType &&  // Same system type
+        booking.startTime === newBooking.startTime &&    // Same start time
+        new Date(booking.id).toDateString() === new Date().toDateString() // Same day
+      );
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const booking = {
-        id: Date.now(), // Unique ID for each booking
-        systemType,
-        duration,
-        startTime,
-        totalAmount,
-        status: "Pending", // Default status
+    const newBooking = {
+      id: Date.now(), // Unique ID for each booking
+      systemType,
+      duration,
+      startTime,
+      totalAmount,
+      status: "Pending",
     };
 
-    // Get existing bookings from localStorage
+    if (checkAvailability(newBooking)) {
+      setErrorMessage("⚠️ This system is already booked for the selected time. Please choose a different time.");
+      return;
+    }
+
+    // Clear error if no conflict
+    setErrorMessage("");
+
+    // Get existing bookings
     const existingBookings = JSON.parse(localStorage.getItem("systemAllotments")) || [];
-
-    // Add the new booking
-    existingBookings.push(booking);
-
-    // Save back to localStorage
+    
+    // Add new booking
+    existingBookings.push(newBooking);
     localStorage.setItem("systemAllotments", JSON.stringify(existingBookings));
 
     // Navigate to Payment Page
     navigate("/payment-system-allotment", {
-        state: {
-            serviceName: "System Allotment",
-            systemType,
-            duration,
-            startTime,
-            totalAmount,
-            details: `${systemType} for ${duration} hour(s), Start Time: ${startTime}`,
-        },
+      state: {
+        serviceName: "System Allotment",
+        systemType,
+        duration,
+        startTime,
+        totalAmount,
+        details: `${systemType} for ${duration} hour(s), Start Time: ${startTime}`,
+      },
     });
-};
-
+  };
 
   return (
     <div className="allotment-container">
       <h2>Book a System</h2>
+      
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+
       <form onSubmit={handleSubmit}>
         <label>System Type:</label>
         <select value={systemType} onChange={(e) => setSystemType(e.target.value)}>

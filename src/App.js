@@ -14,6 +14,7 @@ import AdminSystemAllotmentManagement from "./Pages/AdminSystemAllotmentManageme
 import AdminLaptopServiceManagement from "./Pages/AdminLaptopServiceManagement";
 import AdminCCTVServiceManagement from "./Pages/AdminCCTVServiceManagement";
 import AdminTicketBookingManagement from "./Pages/AdminTicketBookingManagement";
+import AdminTransactionManagement from "./Pages/AdminTransactionManagement";
 import SystemAllotment from "./Pages/SystemAllotment";
 import PaymentPageSystemAllotment from "./Pages/PaymentPageSystemAllotment";
 import ConfirmationPage from "./Pages/ConfirmationPage";
@@ -46,6 +47,7 @@ function App() {
           <Route path="/manage-laptop-services" element={<AdminLaptopServiceManagement />} />
           <Route path="/manage-cctv-services" element={<AdminCCTVServiceManagement />} />
           <Route path="/manage-ticket-booking" element={<AdminTicketBookingManagement />} />
+          <Route path="/admin/manage-transactions" element={<AdminTransactionManagement />} />
           <Route path="/system-allotment" element={<SystemAllotment />} />
           <Route path="/payment-system-allotment" element={<PaymentPageSystemAllotment />} />
           <Route path="/confirmation" element={<ConfirmationPage />} />

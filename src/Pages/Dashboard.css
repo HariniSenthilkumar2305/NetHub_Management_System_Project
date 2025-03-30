@@ -25,6 +25,7 @@
   text-align: center;
   margin-bottom: 25px;
   font-size: 2rem;
+  color: rgb(255, 255, 255);
 }
 
 .sidebar ul {
@@ -86,6 +87,7 @@
   padding: 40px;
   border-radius: 20px;
   height: 100vh;
+  color: rgb(255, 255, 255);
 }
 
 /* "Welcome" Text Animation */
@@ -94,6 +96,7 @@
   font-weight: bold;
   opacity: 0;
   animation: fadeInMove 2s forwards, textFloat 4s ease-in-out infinite alternate;
+  color: rgb(255, 255, 255);
 }
 
 /* Initial Fade-in Animation */

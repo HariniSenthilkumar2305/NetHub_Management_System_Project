@@ -4,23 +4,41 @@ import "./AdminLaptopServiceManagement.css";
 
 const AdminLaptopServiceManagement = () => {
   const [serviceRequests, setServiceRequests] = useState([]);
+  const [pendingCount, setPendingCount] = useState(0);
+  const [completedCount, setCompletedCount] = useState(0);
   const navigate = useNavigate();
 
   // Fetch stored laptop service requests from localStorage
   useEffect(() => {
     const storedRequests = JSON.parse(localStorage.getItem("laptopServiceRequests")) || [];
     setServiceRequests(storedRequests);
+
+    // ✅ Calculate pending & completed counts
+    const pending = storedRequests.filter((req) => req.status === "In Progress").length;
+    const completed = storedRequests.filter((req) => req.status === "Completed").length;
+    
+    setPendingCount(pending);
+    setCompletedCount(completed);
   }, []);
 
-  // Update status of a service request
+  // ✅ Update status of a service request
   const updateStatus = (index, newStatus) => {
     const updatedRequests = [...serviceRequests];
     updatedRequests[index].status = newStatus;
     setServiceRequests(updatedRequests);
     localStorage.setItem("laptopServiceRequests", JSON.stringify(updatedRequests));
+
+    // ✅ Update counts dynamically
+    if (newStatus === "In Progress") {
+      setPendingCount(pendingCount + 1);
+      setCompletedCount(completedCount > 0 ? completedCount - 1 : 0);
+    } else if (newStatus === "Completed") {
+      setCompletedCount(completedCount + 1);
+      setPendingCount(pendingCount > 0 ? pendingCount - 1 : 0);
+    }
   };
 
-  // Update service cost manually
+  // ✅ Update service cost manually
   const updateCost = (index, newCost) => {
     const updatedRequests = [...serviceRequests];
     updatedRequests[index].serviceCost = newCost;
@@ -31,7 +49,16 @@ const AdminLaptopServiceManagement = () => {
   return (
     <div className="admin-laptop-service-container">
       <h1>🛠 Laptop Service Management</h1>
+  
+      {/* ✅ Show Total Bookings */}
+      <h2>Total Laptop Services Booked: {serviceRequests.length}</h2>
 
+      {/* ✅ Show Pending and Completed Counts */}
+      <div className="status-summary">
+        <p><strong>🔄 Pending (In Progress):</strong> {pendingCount}</p>
+        <p><strong>✅ Completed:</strong> {completedCount}</p>
+      </div>
+  
       {serviceRequests.length === 0 ? (
         <p className="no-requests">No laptop service requests found.</p>
       ) : (
@@ -83,7 +110,7 @@ const AdminLaptopServiceManagement = () => {
           </tbody>
         </table>
       )}
-
+  
       <button className="back-btn" onClick={() => navigate("/admin-dashboard")}>⬅ Back to Dashboard</button>
     </div>
   );

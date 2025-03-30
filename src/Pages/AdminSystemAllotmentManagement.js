@@ -3,11 +3,20 @@ import "./AdminSystemAllotmentManagement.css";
 
 const AdminSystemAllotmentManagement = () => {
   const [bookings, setBookings] = useState([]);
+  const [pendingCount, setPendingCount] = useState(0);
+  const [completedCount, setCompletedCount] = useState(0);
 
   useEffect(() => {
     // Fetch stored system allotments (mocking fetching from localStorage)
     const storedBookings = JSON.parse(localStorage.getItem("systemAllotments")) || [];
     setBookings(storedBookings);
+
+    // Calculate pending & completed counts
+    const pending = storedBookings.filter((booking) => booking.status !== "Completed").length;
+    const completed = storedBookings.filter((booking) => booking.status === "Completed").length;
+
+    setPendingCount(pending);
+    setCompletedCount(completed);
   }, []);
 
   // ✅ Mark session as completed
@@ -16,6 +25,10 @@ const AdminSystemAllotmentManagement = () => {
     updatedBookings[index].status = "Completed";
     setBookings(updatedBookings);
     localStorage.setItem("systemAllotments", JSON.stringify(updatedBookings));
+
+    // ✅ Update counts dynamically
+    setPendingCount(pendingCount - 1);
+    setCompletedCount(completedCount + 1);
   };
 
   // ✅ Extend or Reduce Usage Time
@@ -30,6 +43,16 @@ const AdminSystemAllotmentManagement = () => {
   return (
     <div className="admin-system-allotment-container">
       <h1>🖥 System Allotment Management</h1>
+      
+      {/* ✅ Show Total Bookings */}
+      <h2 style={{ color: "white" }}>Total Systems Booked: {bookings.length}</h2>
+      
+      {/* ✅ Show Pending and Completed Count */}
+      <div className="status-summary">
+        <p><strong>📌 Pending Services:</strong> {pendingCount}</p>
+        <p><strong>✅ Completed Services:</strong> {completedCount}</p>
+      </div>
+
       {bookings.length === 0 ? (
         <p className="no-bookings">No active bookings available.</p>
       ) : (
