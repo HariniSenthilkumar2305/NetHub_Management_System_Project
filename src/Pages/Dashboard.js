@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-  const { user, logout, isAdmin } = useContext(AuthContext); // Check if user is an Admin
+  const { user, logout, isAdmin } = useContext(AuthContext); 
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -13,7 +13,7 @@ const Dashboard = () => {
   };
 
   const handleAdminVerification = () => {
-    navigate("/admin-verification"); // Redirect to AdminVerificationPage.js
+    navigate("/admin-verification");
   };
 
   return (
@@ -26,15 +26,16 @@ const Dashboard = () => {
           <li onClick={() => navigate("/laptop-service")}>🛠 Laptop Service</li>
           <li onClick={() => navigate("/cctv-service")}>📹 CCTV Service</li>
           <li onClick={() => navigate("/ticket-booking")}>🎟 Ticket Booking</li>
+
+          {/* New "Other Services" Button */}
+          <li onClick={() => navigate("/other-services")}>🆕 Other Services</li>
+
           <li onClick={() => navigate("/transaction-history")}>💰 Transaction History</li>
-          {/* Show Admin Panel only if the user is an admin */}
+          
           {isAdmin && <li onClick={() => navigate("/admin-dashboard")}>⚙️ Admin Panel</li>}
         </ul>
 
-        {/* New "Admin Verification" Button */}
         <button className="admin-btn" onClick={handleAdminVerification}>Admin Verification</button>
-
-        {/* Logout Button */}
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </aside>
 

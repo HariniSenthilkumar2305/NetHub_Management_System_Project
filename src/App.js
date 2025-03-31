@@ -14,6 +14,7 @@ import AdminSystemAllotmentManagement from "./Pages/AdminSystemAllotmentManageme
 import AdminLaptopServiceManagement from "./Pages/AdminLaptopServiceManagement";
 import AdminCCTVServiceManagement from "./Pages/AdminCCTVServiceManagement";
 import AdminTicketBookingManagement from "./Pages/AdminTicketBookingManagement";
+import AdminOtherServices from "./Pages/AdminOtherServices"; 
 import AdminTransactionManagement from "./Pages/AdminTransactionManagement";
 import SystemAllotment from "./Pages/SystemAllotment";
 import PaymentPageSystemAllotment from "./Pages/PaymentPageSystemAllotment";
@@ -24,9 +25,10 @@ import ConfirmationPageLaptopService from "./Pages/ConfirmationPageLaptopService
 import CCTVService from "./Pages/CCTVService";
 import PaymentPageCCTVService from "./Pages/PaymentPageCCTVService";
 import ConfirmationPageCCTVService from "./Pages/ConfirmationPageCCTVService";
-import TicketBooking from "./Pages/TicketBooking"; // ✅ Import Ticket Booking Page
-import PaymentPage from "./Pages/PaymentPage"; // ✅ Common Payment Page
-import PaymentPageTicketBooking from "./Pages/PaymentPageTicketBooking"; // ✅ Import Payment Page for Ticket Booking
+import TicketBooking from "./Pages/TicketBooking"; 
+import PaymentPage from "./Pages/PaymentPage"; 
+import PaymentPageTicketBooking from "./Pages/PaymentPageTicketBooking"; 
+import OtherServices from "./Pages/OtherServices";
 import TransactionHistory from "./Pages/TransactionHistory";
 
 function App() {
@@ -47,6 +49,7 @@ function App() {
           <Route path="/manage-laptop-services" element={<AdminLaptopServiceManagement />} />
           <Route path="/manage-cctv-services" element={<AdminCCTVServiceManagement />} />
           <Route path="/manage-ticket-booking" element={<AdminTicketBookingManagement />} />
+          <Route path="/admin/manage-other-services" element={<AdminOtherServices />} />
           <Route path="/admin/manage-transactions" element={<AdminTransactionManagement />} />
           <Route path="/system-allotment" element={<SystemAllotment />} />
           <Route path="/payment-system-allotment" element={<PaymentPageSystemAllotment />} />
@@ -60,6 +63,7 @@ function App() {
           <Route path="/ticket-booking" element={<TicketBooking />} /> {/* ✅ Ticket Booking Route */}
           <Route path="/payment" element={<PaymentPage />} /> {/* ✅ Common Payment Page */}
           <Route path="/payment-ticket" element={<PaymentPageTicketBooking />} />
+          <Route path="/other-services"element={<OtherServices />}/>
           <Route path="/transaction-history" element={<TransactionHistory />} />
 
         </Routes>
