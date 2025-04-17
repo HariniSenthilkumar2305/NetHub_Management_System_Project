@@ -1,0 +1,72 @@
+/* General Body Styling */
+body {
+    background-color: #121212; /* Dark background */
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styling */
+.admin-other-services-container {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Heading Styles */
+h1 {
+    color: #f8f9fa; /* Light text for contrast */
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: #ffcc00; /* Gold color for highlighting */
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Service List Styling */
+.other-services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Service Card Styling */
+.service-card {
+    background: linear-gradient(145deg, #1e1e1e, #2c2c2c); /* Soft gradient */
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    width: 320px;
+    box-shadow: 4px 4px 15px rgba(255, 255, 255, 0.2); /* White glow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect for Cards */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Paragraphs Inside Service Cards */
+.service-card p {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Highlighted Text */
+.service-card strong {
+    color: #ffcc00; /* Gold for contrast */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-card {
+        width: 90%;
+    }
+}

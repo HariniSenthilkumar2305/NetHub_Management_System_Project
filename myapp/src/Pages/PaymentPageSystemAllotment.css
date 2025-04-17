@@ -1,0 +1,106 @@
+/* Full-screen blurred background */
+.system-payment-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background Blur Effect */
+.system-payment-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('E:/NetHub Management System_Project/myapp/src/Pages/PaymentPageSystemAllotmentimg.webp') center/cover no-repeat;
+    filter: blur(12px);  /* Increased blur for a softer effect */
+    z-index: -1;  /* Puts the blur behind the content */
+}
+
+/* Glassmorphism effect for the payment box */
+.system-payment-box {
+    background: rgba(255, 255, 255, 0); /* Slightly increased transparency */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(18px); /* Stronger blur for better glass effect */
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    color: #ffffff;  /* Ensuring all text is visible */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Enhanced border visibility */
+}
+
+/* Adjust Heading */
+.system-payment-box h2 {
+    font-size: 28px; /* Increased font size */
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff; /* Pure white for better visibility */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Booking Details */
+.booking-details {
+    font-size: 20px; /* Increased font size */
+    margin-bottom: 20px;
+    color: #f1f1f1; /* Softer white for readability */
+    line-height: 1.6;
+}
+
+/* Cost Highlight */
+.total-amount {
+    font-size: 24px; /* Increased visibility */
+    font-weight: bold;
+    color: black; /* Bright gold for cost emphasis */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Button - Mild Purple & Violet Mix */
+.system-payment-box button {
+    background: linear-gradient(135deg, #8e44ad, #3498db); /* Deep Purple to Sky Blue */
+    color: white;
+    padding: 14px 22px; /* Increased button size */
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    border: none;
+}
+
+/* Button Hover Effect */
+.system-payment-box button:hover {
+    background: linear-gradient(135deg, #3498db, #8e44ad); /* Reverse gradient on hover */
+    transform: scale(1.08);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .system-payment-box {
+        width: 95%;
+        padding: 30px;
+    }
+
+    .system-payment-box h2 {
+        font-size: 24px;
+    }
+
+    .booking-details {
+        font-size: 18px;
+    }
+
+    .total-amount {
+        font-size: 22px;
+    }
+
+    .system-payment-box button {
+        font-size: 18px;
+        padding: 12px;
+    }
+}

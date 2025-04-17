@@ -1,0 +1,196 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: #F2F2F2; /* Light gray background */
+  overflow-x: hidden;
+  color: rgb(255, 255, 255);
+}
+
+/* Home Container */
+.home-container {
+  text-align: center;
+  min-height: 100vh;
+  color: rgb(255, 255, 255);
+}
+
+/* Hero Section with Transparent Background Image */
+.hero {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.6), rgba(68, 68, 68, 0.6)),
+
+              url("E:\NetHub Management System_Project\myapp\src\Pages\HomePageimg.jpg"); /* Ensure the correct path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply; /* Darkens the image */
+  color: rgb(255, 255, 255);
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+}
+
+/* Hero Content */
+.hero-content {
+  max-width: 750px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+/* Floating Animation */
+.hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  animation: floatText 3s ease-in-out infinite alternate;
+  color: rgb(255, 255, 255);
+}
+
+@keyframes floatText {
+  from {
+    transform: translateY(-8px);
+  }
+  to {
+    transform: translateY(8px);
+  }
+}
+
+/* Paragraph Animation */
+.hero p {
+  font-size: 2rem;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 30px 60px;
+  font-size: 2rem;
+  border-radius: 800px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+.primary-btn {
+  background: white;
+  color: #1A1A1A;
+  font-weight: bold;
+  border: 3px solid #1A1A1A;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn:hover {
+  background: #C0C0C0;
+  box-shadow: 0px 8px 14px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+/* Sections */
+.services, 
+.ticket-booking {
+  padding: 60px 20px;
+  background: white;
+}
+
+/* Section Headings */
+.services h2, 
+.ticket-booking h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #1A1A1A;
+  position: relative;
+}
+
+.services h2::after, 
+.ticket-booking h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #444444;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+/* Cards Layout */
+.service-cards, 
+.ticket-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Service & Ticket Cards */
+.service-card, 
+.ticket-card {
+  background: rgba(0, 0, 0, 0.5); /* Dark card background */
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 340px;
+  text-decoration: none;
+  transition: 0.3s;
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, #1A1A1A, #444444);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.service-card:hover, 
+.ticket-card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #333333, #666666);
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+    padding: 12px 30px;
+  }
+
+  .service-card, 
+  .ticket-card {
+    width: 100%;
+    max-width: 350px;
+  }
+}

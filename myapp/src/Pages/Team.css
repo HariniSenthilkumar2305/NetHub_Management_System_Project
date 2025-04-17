@@ -1,0 +1,29 @@
+.team-container {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.6rem;
+    color: white;
+    background: black;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .member {
+    background: #444;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+  }
+  
+  @media (max-width: 768px) {
+    .team-container {
+      font-size: 1.2rem;
+      padding: 30px;
+    }
+  }
+  

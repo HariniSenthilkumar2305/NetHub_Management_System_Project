@@ -1,0 +1,70 @@
+/* Background */
+body.system-allotment-bg {
+    background: url("../Pages/SystemAllotmentimg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Blurred overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    z-index: -1;
+}
+
+/* Container */
+.allotment-container {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+}
+
+/* Form styling */
+.allotment-container label {
+    font-size: 22px;
+    display: block;
+    margin-top: 20px;
+}
+
+.allotment-container select,
+.allotment-container input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+/* Button */
+.allotment-container button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, pink, rgba(128, 0, 128, 0.7));
+    color: white;
+    font-size: 22px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background: #ffe6e6;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+}
+

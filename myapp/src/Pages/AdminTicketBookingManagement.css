@@ -1,0 +1,106 @@
+/* General Styling */
+.admin-ticket-management {
+  max-width: 90%;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #f3f8ff, #ddeeff);
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header Styling */
+.admin-ticket-management h1 {
+  color: white;
+  font-size: 30px;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  padding: 14px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.admin-ticket-management table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Head */
+.admin-ticket-management thead {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+}
+
+/* Table Cells */
+.admin-ticket-management th, 
+.admin-ticket-management td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Alternate Row Color */
+.admin-ticket-management tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* Hover Effect */
+.admin-ticket-management tbody tr:hover {
+  background: #d1ecf1;
+  transform: scale(1.01);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Status Dropdown Styling */
+.admin-ticket-management select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Status Dropdown Focus */
+.admin-ticket-management select:focus {
+  outline: none;
+  border-color: #ff758c;
+  background: #fff3f3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 900px) {
+  .admin-ticket-management th, 
+  .admin-ticket-management td {
+      padding: 10px;
+      font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-ticket-management table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+
+  .admin-ticket-management th, 
+  .admin-ticket-management td {
+      font-size: 12px;
+      padding: 8px;
+  }
+
+  .admin-ticket-management h1 {
+      font-size: 24px;
+  }
+}

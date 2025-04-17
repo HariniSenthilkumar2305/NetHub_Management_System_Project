@@ -1,0 +1,142 @@
+/* Full-screen Background Image */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background: url("E:/NetHub Management System_Project/myapp/src/Pages/Dashboardimage.jpg") no-repeat center center/cover;
+}
+
+/* Left Sidebar */
+.sidebar {
+  width: 480px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 18px;
+  position: fixed;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Common Button Styles (Admin & Logout) */
+.admin-btn, .logout-btn {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+/* Admin Button Styling */
+.admin-btn {
+  margin-bottom: 12px; /* Adds space between Admin & Logout */
+}
+
+/* Hover Effect (Same for Both Buttons) */
+.admin-btn:hover, .logout-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Dashboard Main Content */
+.dashboard-content {
+  flex: 1;
+  margin-left: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: calc(100% - 380px);
+  max-width: 900px;
+  padding: 40px;
+  border-radius: 20px;
+  height: 100vh;
+  color: rgb(255, 255, 255);
+}
+
+/* "Welcome" Text Animation */
+.animated-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInMove 2s forwards, textFloat 4s ease-in-out infinite alternate;
+  color: rgb(255, 255, 255);
+}
+
+/* Initial Fade-in Animation */
+@keyframes fadeInMove {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Continuous Floating Animation */
+@keyframes textFloat {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(15px);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 0;
+  }
+
+  .dashboard-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+}

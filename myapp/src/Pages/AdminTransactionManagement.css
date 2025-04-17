@@ -1,0 +1,66 @@
+.admin-transaction-container {
+    max-width: 1900px;
+    margin: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .admin-transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+  }
+  
+  .admin-transaction-table th,
+  .admin-transaction-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .admin-transaction-table th {
+    background: #007bff;
+    color: white;
+  }
+  
+  .status-pending {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .status-completed {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-btn {
+    margin: 5px;
+    padding: 7px 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .status-btn.complete {
+    background-color: green;
+    color: white;
+  }
+  
+  .status-btn.pending {
+    background-color: red;
+    color: white;
+  }
+  
+  .status-btn:hover {
+    opacity: 0.8;
+  }
+  

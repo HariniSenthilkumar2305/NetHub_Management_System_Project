@@ -1,0 +1,132 @@
+/* Full-screen Centering */
+.confirmation-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77); /* Dark blue gradient */
+  backdrop-filter: blur(10px);
+}
+
+/* Glassmorphic Confirmation Box */
+.confirmation-box {
+  background: rgba(255, 255, 255, 0.15); /* Soft glass effect */
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  max-width: 480px;
+  width: 90%;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Confirmation Heading */
+.confirmation-box h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #ffcc00; /* Gold color for prominence */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Animated Checkmark Icon */
+.checkmark-icon {
+  font-size: 60px;
+  color: #4caf50; /* Success Green */
+  margin-bottom: 15px;
+  animation: pop 0.5s ease-in-out;
+}
+
+/* Confirmation Message */
+.confirmation-box p {
+  font-size: 20px;
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Highlighted Total Amount */
+.total-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff5722; /* Bright Red-Orange */
+  margin: 15px 0;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated "Back to Dashboard" Button */
+.confirmation-box button {
+  background: linear-gradient(135deg, #00c853, #006400); /* Vibrant Green */
+  color: white;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(0, 255, 0, 0.4);
+  margin-top: 20px;
+}
+
+/* Button Hover Effect */
+.confirmation-box button:hover {
+  background: linear-gradient(135deg, #006400, #00c853);
+  transform: scale(1.07);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Pop-in Animation for Checkmark */
+@keyframes pop {
+  0% {
+      transform: scale(0);
+      opacity: 0;
+  }
+  70% {
+      transform: scale(1.2);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .confirmation-box {
+      width: 90%;
+      padding: 30px;
+  }
+
+  .confirmation-box h2 {
+      font-size: 24px;
+  }
+
+  .confirmation-box p {
+      font-size: 18px;
+  }
+
+  .total-amount {
+      font-size: 22px;
+  }
+
+  .confirmation-box button {
+      font-size: 16px;
+      padding: 12px;
+  }
+}
