@@ -24,7 +24,7 @@ const OtherServices = () => {
       alert("Please fill in all fields.");
       return;
     }
-  
+
     const transaction = {
       date: new Date().toLocaleDateString(),
       userName: username || "Unknown",
@@ -32,17 +32,32 @@ const OtherServices = () => {
       details: details,
       amount: parseFloat(amount),
       status: status,
-      category: "OtherServices", 
+      category: "OtherServices",
     };
-  
+
+    // ✅ Save to localStorage
     const existingTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
     localStorage.setItem("transactions", JSON.stringify([...existingTransactions, transaction]));
-  
+
+    // ✅ Save to MongoDB via Backend API
+    fetch("http://localhost:5000/api/transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(transaction),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("✅ Saved to MongoDB:", data);
+      })
+      .catch((err) => {
+        console.error("❌ Failed to save to MongoDB:", err);
+      });
+
     alert("Transaction Saved Successfully!");
     navigate("/dashboard");
   };
-  
-  
 
   return (
     <div className="other-services-container">
@@ -55,13 +70,27 @@ const OtherServices = () => {
         <input type="text" value={username || "Unknown"} disabled />
 
         <label>🛠 Service Type:</label>
-        <input type="text" placeholder="Enter Service Type" value={serviceType} onChange={(e) => setServiceType(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Enter Service Type"
+          value={serviceType}
+          onChange={(e) => setServiceType(e.target.value)}
+        />
 
         <label>📜 Details:</label>
-        <textarea placeholder="Enter Service Details" value={details} onChange={(e) => setDetails(e.target.value)}></textarea>
+        <textarea
+          placeholder="Enter Service Details"
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
+        ></textarea>
 
         <label>💰 Amount (₹):</label>
-        <input type="number" placeholder="Enter Amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+        <input
+          type="number"
+          placeholder="Enter Amount"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
 
         <label>✅ Admin Status:</label>
         <select value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -69,7 +98,9 @@ const OtherServices = () => {
           <option value="Completed">Completed</option>
         </select>
 
-        <button className="save-btn" onClick={handleSaveTransaction}>Proceed to Save</button>
+        <button className="save-btn" onClick={handleSaveTransaction}>
+          Proceed to Save
+        </button>
       </div>
     </div>
   );
