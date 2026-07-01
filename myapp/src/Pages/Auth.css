@@ -1,7 +1,7 @@
 /* 📌 Background Image ONLY for Login & Register Pages */
 .login-page, .register-page {
   font-family: "Poppins", sans-serif;
-  background: url("E:\NetHub Management System_Project\myapp\src\Pages\loginimage.jpg") center/cover no-repeat;
+  background: url("./loginimage.jpg") center/cover no-repeat;
   background-size: cover;
   background-attachment: fixed;
   display: flex;

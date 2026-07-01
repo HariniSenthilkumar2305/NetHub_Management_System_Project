@@ -30,6 +30,7 @@ import PaymentPage from "./Pages/PaymentPage";
 import PaymentPageTicketBooking from "./Pages/PaymentPageTicketBooking"; 
 import OtherServices from "./Pages/OtherServices";
 import TransactionHistory from "./Pages/TransactionHistory";
+import "./theme.css";
 
 function App() {
   return (

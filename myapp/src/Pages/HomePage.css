@@ -23,7 +23,7 @@ body {
 .hero {
   background: linear-gradient(to right, rgba(26, 26, 26, 0.6), rgba(68, 68, 68, 0.6)),
 
-              url("E:\NetHub Management System_Project\myapp\src\Pages\HomePageimg.jpg"); /* Ensure the correct path */
+              url("./HomePageimg.jpg"); /* Ensure the correct path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

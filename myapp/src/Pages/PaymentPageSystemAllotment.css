@@ -16,7 +16,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('E:/NetHub Management System_Project/myapp/src/Pages/PaymentPageSystemAllotmentimg.webp') center/cover no-repeat;
+    background: url("./PaymentPageSystemAllotmentimg.webp") center/cover no-repeat;
     filter: blur(12px);  /* Increased blur for a softer effect */
     z-index: -1;  /* Puts the blur behind the content */
 }

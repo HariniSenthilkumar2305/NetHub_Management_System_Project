@@ -4,9 +4,9 @@ import "./AdminVerificationPage.css";
 
 // Predefined admin credentials (secure information)
 const ADMIN_CREDENTIALS = {
-  username: "Harini S",
-  password: "harini2005",
-  nethubPin: "12345",
+  username: "pargavan p",
+  password: "Pargavan@8818",
+  nethubPin: "161020",
 };
 
 const AdminVerificationPage = () => {
