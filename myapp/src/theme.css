@@ -1,0 +1,848 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap");
+
+:root {
+  --bg: #f4f7fb;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --ink: #102033;
+  --muted: #65758b;
+  --line: rgba(16, 32, 51, 0.12);
+  --brand: #0f766e;
+  --brand-2: #2563eb;
+  --accent: #f59e0b;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --shadow: 0 22px 60px rgba(15, 23, 42, 0.18);
+  --soft-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  letter-spacing: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(37, 99, 235, 0.16), transparent 28rem),
+    radial-gradient(circle at 90% 6%, rgba(15, 118, 110, 0.16), transparent 24rem),
+    linear-gradient(135deg, #f8fbff 0%, #eef4f7 50%, #f7f8fb 100%) !important;
+  color: var(--ink) !important;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  pointer-events: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+.logo,
+.admin-title,
+.animated-text {
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: 0;
+}
+
+p,
+label,
+li,
+td,
+th,
+input,
+select,
+textarea,
+button {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+button,
+.btn,
+.auth-btn,
+.pay-button,
+.pay-btn,
+.pay-now-btn,
+.dashboard-btn,
+.back-home-btn,
+.back-btn,
+.save-btn,
+.search-btn,
+.book-now-btn,
+.book-again-btn,
+.admin-actions button,
+.sidebar button,
+.allotment-container button,
+.right-section button,
+.form-box button,
+.confirmation-box button {
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2)) !important;
+  color: #fff !important;
+  cursor: pointer;
+  font-weight: 800 !important;
+  letter-spacing: 0.01em;
+  min-height: 48px;
+  padding: 13px 22px !important;
+  text-decoration: none;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.24) !important;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease !important;
+}
+
+button:hover,
+.btn:hover,
+.auth-btn:hover,
+.pay-button:hover,
+.pay-btn:hover,
+.pay-now-btn:hover,
+.dashboard-btn:hover,
+.back-home-btn:hover,
+.back-btn:hover,
+.save-btn:hover,
+.search-btn:hover,
+.book-now-btn:hover,
+.book-again-btn:hover,
+.admin-actions button:hover,
+.sidebar button:hover {
+  filter: saturate(1.08);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 18px 36px rgba(15, 118, 110, 0.26) !important;
+}
+
+input,
+select,
+textarea,
+.cost-input {
+  width: 100%;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: var(--ink) !important;
+  font-size: 1rem !important;
+  outline: none;
+  padding: 13px 15px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(37, 99, 235, 0.55) !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8794a7 !important;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+th {
+  background: #102033 !important;
+  color: #fff !important;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+td,
+th {
+  border: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+  padding: 14px 16px !important;
+}
+
+tbody tr {
+  background: rgba(255, 255, 255, 0.72) !important;
+}
+
+tbody tr:nth-child(even) {
+  background: rgba(241, 245, 249, 0.86) !important;
+}
+
+tbody tr:hover {
+  background: rgba(219, 234, 254, 0.85) !important;
+  transform: none !important;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 18px clamp(18px, 5vw, 72px) !important;
+  background: rgba(16, 32, 51, 0.82) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+}
+
+.logo {
+  color: #fff;
+  font-size: clamp(1.7rem, 3vw, 2.25rem) !important;
+  font-weight: 800 !important;
+}
+
+.nav-links {
+  align-items: center;
+  gap: clamp(12px, 3vw, 32px) !important;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 0.98rem !important;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.nav-links li a:hover {
+  color: #facc15 !important;
+}
+
+.hero {
+  min-height: 78vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(76px, 11vw, 140px) 20px clamp(56px, 8vw, 98px) !important;
+  background:
+    linear-gradient(105deg, rgba(8, 20, 38, 0.88), rgba(8, 20, 38, 0.52)),
+    url("./Pages/HomePageimg.jpg") center/cover no-repeat !important;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 920px !important;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: clamp(3rem, 8vw, 6.7rem) !important;
+  font-weight: 800 !important;
+  line-height: 0.95;
+  text-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  animation: none !important;
+}
+
+.hero h1:first-child {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  color: #facc15 !important;
+  font-size: clamp(1rem, 2vw, 1.25rem) !important;
+  letter-spacing: 0.18em;
+  margin-bottom: 12px !important;
+  text-transform: uppercase;
+}
+
+.hero p {
+  display: inline;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: clamp(1.08rem, 2.2vw, 1.35rem) !important;
+  line-height: 1.7;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.primary-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px !important;
+  min-width: 190px;
+}
+
+.services,
+.ticket-booking,
+.about-container,
+.team-container,
+.contact-container {
+  background: transparent !important;
+  color: var(--ink) !important;
+  min-height: auto;
+  padding: clamp(54px, 8vw, 92px) clamp(18px, 5vw, 72px) !important;
+}
+
+.services h2,
+.ticket-booking h2,
+.about-container h1,
+.team-container h1,
+.contact-container h1,
+.other-services-container h1,
+.transaction-container h2,
+.payment-container h2,
+.allotment-container h2,
+.right-section h2,
+.form-box h2,
+.confirmation-box h2 {
+  color: var(--ink) !important;
+  font-size: clamp(2rem, 5vw, 3.4rem) !important;
+  line-height: 1.05;
+  margin: 0 0 28px !important;
+}
+
+.service-cards,
+.ticket-options,
+.team-members,
+.admin-stats {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px !important;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.service-card,
+.ticket-card,
+.member,
+.stat-card,
+.transport-option,
+.service-details,
+.confirmation-box,
+.payment-container,
+.system-payment-box,
+.laptop-payment-box,
+.allotment-container,
+.auth-container,
+.right-section,
+.form-box,
+.admin-panel,
+.transaction-container,
+.admin-laptop-service-container,
+.admin-cctv-container,
+.admin-ticket-management,
+.admin-system-allotment-container,
+.admin-transaction-container,
+.admin-other-services-container,
+.other-services-container .form-container {
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: var(--radius) !important;
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+  box-shadow: var(--soft-shadow) !important;
+  backdrop-filter: blur(18px);
+}
+
+.service-card,
+.ticket-card,
+.member,
+.stat-card,
+.transport-option {
+  position: relative;
+  overflow: hidden;
+  min-height: 178px;
+  padding: 28px !important;
+  text-align: left !important;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.service-card::before,
+.ticket-card::before,
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2), var(--accent));
+}
+
+.service-card:hover,
+.ticket-card:hover,
+.member:hover,
+.stat-card:hover {
+  background: #fff !important;
+  transform: translateY(-6px) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+.service-card h3,
+.ticket-card h3,
+.member h3,
+.stat-card {
+  color: var(--ink) !important;
+  font-size: 1.35rem !important;
+}
+
+.service-card p,
+.ticket-card p,
+.about-container p,
+.team-container p,
+.contact-container p,
+.member p {
+  color: var(--muted) !important;
+  font-size: 1rem !important;
+  line-height: 1.7;
+}
+
+.login-page,
+.register-page,
+.dashboard-container,
+.admin-dashboard-container,
+.laptop-service-container,
+.cctv-page,
+.ticket-booking-wrapper,
+.system-payment-container,
+.laptop-payment-container,
+.payment-container,
+.confirmation-container,
+.other-services-container,
+.transaction-container,
+.admin-laptop-service-container,
+.admin-cctv-container,
+.admin-ticket-management,
+.admin-system-allotment-container,
+.admin-transaction-container,
+.admin-other-services-container,
+.admin-verification-container {
+  min-height: 100vh;
+}
+
+.login-page,
+.register-page {
+  justify-content: flex-start !important;
+  padding: clamp(24px, 8vw, 90px) !important;
+  background:
+    linear-gradient(100deg, rgba(8, 20, 38, 0.82), rgba(8, 20, 38, 0.18)),
+    url("./Pages/loginimage.jpg") center/cover no-repeat fixed !important;
+}
+
+.auth-container {
+  width: min(440px, 100%) !important;
+  min-height: auto !important;
+  padding: clamp(28px, 5vw, 44px) !important;
+}
+
+.auth-container h2 {
+  color: var(--ink) !important;
+  font-size: clamp(2.1rem, 4vw, 3rem) !important;
+}
+
+.auth-container p,
+.auth-container a {
+  color: var(--muted) !important;
+  font-weight: 700;
+}
+
+.auth-container form {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-container input {
+  min-height: 56px;
+  border: 1px solid rgba(37, 99, 235, 0.18) !important;
+  border-radius: 18px !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.9)) !important;
+  color: var(--ink) !important;
+  font-size: 1rem !important;
+  font-weight: 700;
+  margin: 0 !important;
+  padding: 16px 18px 16px 48px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 10px 26px rgba(15, 23, 42, 0.08) !important;
+}
+
+.auth-container form input:first-of-type {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.9)),
+    radial-gradient(circle at 24px 50%, rgba(15, 118, 110, 0.18) 0 9px, transparent 10px) !important;
+}
+
+.auth-container form input[type="password"] {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.9)),
+    radial-gradient(circle at 24px 50%, rgba(245, 158, 11, 0.22) 0 9px, transparent 10px) !important;
+}
+
+.auth-container input:hover {
+  border-color: rgba(15, 118, 110, 0.34) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 14px 32px rgba(15, 23, 42, 0.12) !important;
+}
+
+.auth-container input:focus {
+  border-color: rgba(15, 118, 110, 0.68) !important;
+  background:
+    linear-gradient(180deg, #ffffff, #f8fbff),
+    radial-gradient(circle at 24px 50%, rgba(15, 118, 110, 0.2) 0 9px, transparent 10px) !important;
+  box-shadow:
+    0 0 0 4px rgba(15, 118, 110, 0.13),
+    0 18px 36px rgba(15, 23, 42, 0.14) !important;
+}
+
+.dashboard-container {
+  align-items: stretch;
+  background:
+    linear-gradient(105deg, rgba(8, 20, 38, 0.82), rgba(8, 20, 38, 0.42)),
+    url("./Pages/Dashboardimage.jpg") center/cover no-repeat !important;
+}
+
+.sidebar {
+  position: relative !important;
+  width: min(360px, 34vw) !important;
+  min-width: 290px;
+  height: auto !important;
+  padding: 34px 24px !important;
+  border-radius: 0 !important;
+  background: rgba(16, 32, 51, 0.74) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 16px 0 44px rgba(0, 0, 0, 0.24);
+}
+
+.sidebar h2 {
+  font-size: 2.5rem !important;
+  color: #fff !important;
+}
+
+.sidebar ul li {
+  margin: 8px 0 !important;
+  padding: 14px 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.11) !important;
+  color: #fff;
+  font-size: 0.98rem !important;
+  font-weight: 700;
+  text-align: left !important;
+}
+
+.sidebar ul li:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: translateX(4px);
+}
+
+.dashboard-content {
+  width: auto !important;
+  max-width: none !important;
+  height: auto !important;
+  margin-left: 0 !important;
+  padding: clamp(32px, 7vw, 92px) !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.animated-text {
+  max-width: 780px;
+  color: #fff !important;
+  font-size: clamp(3rem, 8vw, 6.5rem) !important;
+  line-height: 0.95;
+  opacity: 1 !important;
+  animation: none !important;
+}
+
+.dashboard-content p {
+  color: rgba(255, 255, 255, 0.84) !important;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+}
+
+.admin-dashboard-container {
+  padding: clamp(28px, 6vw, 72px) !important;
+  background:
+    linear-gradient(115deg, rgba(8, 20, 38, 0.86), rgba(8, 20, 38, 0.36)),
+    url("./Pages/Dashboardimage.jpg") center/cover no-repeat !important;
+}
+
+.admin-title {
+  color: #fff !important;
+  font-size: clamp(2.8rem, 7vw, 5.8rem) !important;
+  animation: none !important;
+  margin-bottom: 28px;
+}
+
+.admin-actions {
+  width: min(760px, 100%);
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px !important;
+}
+
+.admin-actions button {
+  width: 100%;
+  min-height: 64px;
+  text-align: left;
+  border-radius: 16px !important;
+}
+
+.laptop-service-container,
+.cctv-page,
+.ticket-booking-wrapper,
+.system-payment-container,
+.laptop-payment-container,
+.confirmation-container {
+  display: grid !important;
+  place-items: center;
+  padding: clamp(24px, 5vw, 62px) !important;
+}
+
+.laptop-service-container {
+  height: auto !important;
+}
+
+.laptop-service-container::before {
+  filter: none !important;
+  background:
+    linear-gradient(105deg, rgba(8, 20, 38, 0.84), rgba(8, 20, 38, 0.36)),
+    url("./Pages/LaptopServiceimg.jpg") center/cover no-repeat !important;
+}
+
+.content-wrapper,
+.cctv-service-container {
+  width: min(1180px, 100%) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+  gap: clamp(22px, 4vw, 42px) !important;
+  align-items: center;
+}
+
+.cctv-service-container {
+  grid-template-columns: minmax(260px, 0.95fr) minmax(320px, 430px) minmax(220px, 0.7fr);
+}
+
+.left-section,
+.service-info {
+  width: auto !important;
+  color: #fff !important;
+}
+
+.left-section h1,
+.service-info h1 {
+  color: #fff !important;
+  font-size: clamp(2.8rem, 6vw, 5rem) !important;
+  line-height: 1;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.left-section p,
+.service-info p,
+.left-section li {
+  color: rgba(255, 255, 255, 0.84) !important;
+}
+
+.right-section,
+.form-box,
+.admin-panel {
+  width: auto !important;
+  padding: clamp(22px, 4vw, 34px) !important;
+}
+
+.cctv-page {
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.2), transparent 26rem),
+    linear-gradient(135deg, #102033, #0f766e) !important;
+}
+
+.cctv-image {
+  border-radius: 18px !important;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+}
+
+.allotment-container {
+  width: min(520px, calc(100% - 32px)) !important;
+  margin: clamp(48px, 10vh, 90px) auto !important;
+  padding: clamp(26px, 5vw, 42px) !important;
+}
+
+body.system-allotment-bg {
+  background:
+    linear-gradient(105deg, rgba(8, 20, 38, 0.82), rgba(8, 20, 38, 0.34)),
+    url("./Pages/SystemAllotmentimg.jpg") center/cover fixed no-repeat !important;
+}
+
+.total-cost,
+.total-amount,
+.booking-details,
+.payment-details p,
+.confirmation-message,
+.result-box {
+  color: var(--ink) !important;
+  font-size: 1.08rem !important;
+  line-height: 1.65;
+}
+
+.ticket-booking-wrapper {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(245, 158, 11, 0.24), transparent 28rem),
+    linear-gradient(135deg, #102033, #1f3b57) !important;
+}
+
+.ticket-booking-container {
+  width: min(560px, 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.72) !important;
+  border-radius: var(--radius) !important;
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+  box-shadow: var(--shadow) !important;
+  padding: clamp(24px, 5vw, 38px) !important;
+}
+
+.payment-container,
+.system-payment-box,
+.laptop-payment-box,
+.confirmation-box {
+  width: min(620px, 100%) !important;
+  margin: 0 auto !important;
+  padding: clamp(26px, 5vw, 44px) !important;
+  text-align: center;
+}
+
+.confirmation-container {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(22, 163, 74, 0.22), transparent 24rem),
+    linear-gradient(135deg, #ecfdf5, #eef4ff) !important;
+}
+
+.checkmark-icon {
+  color: var(--success) !important;
+  font-size: 4rem !important;
+}
+
+.other-services-container,
+.admin-laptop-service-container,
+.admin-cctv-container,
+.admin-ticket-management,
+.admin-system-allotment-container,
+.admin-transaction-container,
+.admin-other-services-container,
+.transaction-container {
+  width: min(1180px, calc(100% - 32px)) !important;
+  margin: 28px auto !important;
+  padding: clamp(22px, 4vw, 38px) !important;
+}
+
+.other-services-container {
+  display: block !important;
+  min-height: calc(100vh - 56px);
+}
+
+.other-services-container .form-container {
+  width: min(620px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 34px);
+  text-align: left;
+}
+
+.other-services-container label,
+.input-group label,
+.allotment-container label {
+  color: var(--ink) !important;
+  display: block;
+  font-size: 0.88rem !important;
+  font-weight: 900 !important;
+  margin: 14px 0 7px !important;
+  text-transform: uppercase;
+}
+
+.status,
+[class^="status-"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px !important;
+  padding: 6px 12px !important;
+  font-size: 0.82rem !important;
+  font-weight: 900 !important;
+}
+
+.status.pending,
+.status-pending {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.status.in-progress,
+.status-in-progress {
+  background: #dbeafe !important;
+  color: #1d4ed8 !important;
+}
+
+.status.completed,
+.status-completed {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.error-message {
+  border: 1px solid rgba(220, 38, 38, 0.22) !important;
+  border-radius: 12px !important;
+  background: #fef2f2 !important;
+  color: var(--danger) !important;
+}
+
+@media (max-width: 920px) {
+  .content-wrapper,
+  .cctv-service-container {
+    grid-template-columns: 1fr;
+  }
+
+  .left-section,
+  .service-info {
+    text-align: center;
+  }
+
+  .dashboard-container {
+    display: block !important;
+  }
+
+  .sidebar {
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  .dashboard-content {
+    min-height: 52vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    align-items: flex-start !important;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .hero p {
+    display: block;
+  }
+
+  td,
+  th {
+    min-width: 130px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}

@@ -11,17 +11,7 @@ const PaymentPage = () => {
     serviceName,
     serviceType,
     details,
-    totalAmount,
-    numCameras,
-    address,
-    date,
-    brand,
-    model,
-    issueType,
-    description,
-    systemType,
-    duration,
-    startTime
+    totalAmount
   } = location.state || { serviceName: "Unknown", totalAmount: 0 };
   // Handle Payment Process
   const handlePayment = () => {

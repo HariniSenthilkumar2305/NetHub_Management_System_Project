@@ -1,0 +1,10 @@
+(node:17880) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17880) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+❌ MongoDB connection failed Error: querySrv ECONNREFUSED _mongodb._tcp.cluster1.qrzrt3d.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:295:17) {
+  errno: undefined,
+  code: 'ECONNREFUSED',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster1.qrzrt3d.mongodb.net'
+}
